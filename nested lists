@@ -28,3 +28,23 @@ def chunked(s, n):
     return result
     
 print(chunked(s, n))
+
+# Создание всех подсписков списка
+s = input().split()
+
+result = []
+result.append([])
+
+def chunked(s, n):
+    list = []
+    while len(s) >= n:
+        list.append(s[:n])
+        s = s[1:]
+    return list
+
+for i in range(1, len(s)+1):
+    pre_result = chunked(s, i)
+    result += pre_result
+
+
+print(result)
