@@ -1,0 +1,16 @@
+s = input().split()
+
+print(s)
+result = []
+current_group = [s[0]]
+
+for i in s[1:]:
+    if i == current_group[-1]:
+        current_group.append(i)
+    else:
+        result.append(current_group)
+        current_group = [i]
+
+result.append(current_group)
+
+print(result)
