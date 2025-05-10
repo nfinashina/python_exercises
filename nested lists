@@ -1,3 +1,4 @@
+#Создание списка, где одинаковые символы, идущие подряд, добавляются в один подсписок 
 s = input().split()
 
 print(s)
@@ -14,3 +15,16 @@ for i in s[1:]:
 result.append(current_group)
 
 print(result)
+
+#Разбиение строки на подспики заданной длины
+s = input().split()
+n = int(input())
+
+def chunked(s, n):
+    result = []
+    while len(s) > 0:
+        result.append(s[:n])
+        s = s[n:]
+    return result
+    
+print(chunked(s, n))
