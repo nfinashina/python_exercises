@@ -22,3 +22,25 @@ for i in range(n):
     s += int(matrix[i][i])
 
 print(s)
+
+# вычисление количества элементов в строке матрицы, которые больше среднего арифметического
+
+n = int(input())
+
+matrix = [input().split() for _ in range(n)]
+
+count = 0
+row_sum = 0
+row_med = 0
+
+for i in range(n):
+    for j in range(n):
+        row_sum += int(matrix[i][j])
+    row_med = row_sum / n
+    for j in range(n):
+        if int(matrix[i][j]) > row_med:
+            count += 1
+    print(count)
+    count = 0
+    row_sum = 0
+    row_med = 0
