@@ -44,3 +44,7 @@ for i in range(n):
     count = 0
     row_sum = 0
     row_med = 0
+
+# создание матрицы
+
+matrix = [list(map(int, input().split())) for i in range(int(input()))]
