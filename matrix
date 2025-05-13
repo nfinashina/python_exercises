@@ -10,3 +10,15 @@ for j in range(m):
     for i in range(n):
         print(matrix[i][j], end=" ")
     print()
+
+#вычисление следа матрицы
+
+n = int(input())
+
+matrix = [input().split() for _ in range(n)]
+
+s = 0
+for i in range(n):
+    s += int(matrix[i][i])
+
+print(s)
