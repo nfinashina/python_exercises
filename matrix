@@ -48,3 +48,18 @@ for i in range(n):
 # создание матрицы
 
 matrix = [list(map(int, input().split())) for i in range(int(input()))]
+
+
+# вычисление максимального значения в области
+n = int(input())
+
+matrix = [input().split() for _ in range(n)]
+
+max = -1000
+
+for i in range(n):
+    for j in range(n):
+        if i >= j and int(matrix[i][j]) > max:
+            max = int(matrix[i][j])
+            
+print(max)
