@@ -115,3 +115,21 @@ for i in range(n):
     for j in range(m):
         print(str(mult[i][j]).ljust(3), end=" ")
     print()
+
+#найти максимум в таблице
+n = int(input())
+m = int(input())
+
+matrix = [list(map(int, input().split())) for i in range(n)]
+
+n_max = -100
+i_max = 0
+j_max = 0
+for i in range(n):
+    for j in range(m):
+        if matrix[i][j] > n_max:
+            n_max = matrix[i][j]
+            i_max = i
+            j_max = j
+            
+print(i_max, j_max)
