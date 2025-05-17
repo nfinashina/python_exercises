@@ -133,3 +133,36 @@ for i in range(n):
             j_max = j
             
 print(i_max, j_max)
+
+#поменять местами столбцы в матрице
+
+n = int(input())
+m = int(input())
+
+matrix = [list(map(int, input().split())) for _ in range(n)]
+matrix_new = [[0]*m for _ in range(n)]
+
+c1, c2 = input().split()
+
+for i in range(n):
+    for j in range(m):
+        if j == int(c1):
+            matrix_new[i][j] = matrix[i][int(c2)]
+        elif j == int(c2):
+            matrix_new[i][j] = matrix[i][int(c1)]
+        else:
+            matrix_new[i][j] = matrix[i][j]
+            
+for i in range(n):
+    for j in range(m):
+        print(matrix_new[i][j], end=" ")
+    print()
+
+# альтернативное решение
+
+n, m = int(input()), int(input())
+matrix = [list(map(int, input().split())) for i in range(n)]
+c1, c2 = (map(int, input().split()))
+for k in matrix:
+    k[c1], k[c2] = k[c2], k[c1]
+    print(*k)
