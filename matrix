@@ -166,3 +166,16 @@ c1, c2 = (map(int, input().split()))
 for k in matrix:
     k[c1], k[c2] = k[c2], k[c1]
     print(*k)
+
+#
+
+n = int(input())
+
+matrix = [list(map(int, input().split())) for _ in range(n)]
+
+result = 'YES'
+for i in range(n):
+    for j in range(n):
+        if matrix[i][j] != matrix [j][i]:
+            result = 'NO'
+print(result)
