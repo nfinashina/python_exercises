@@ -247,3 +247,17 @@ for i in range(n):
 for i in range(n):
     print(*matrix[i], end=" ")
     print()
+
+# заполнение матрицы числами по порядку
+n, m = map(int, input().split())
+
+matrix = [[0]*m for _ in range(n) ]
+
+for i in range(n):
+    for j in range(m):
+        matrix[i][j] = j + 1 + i*m
+
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(3), end=" ")
+    print()
