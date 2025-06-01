@@ -274,3 +274,38 @@ for i in range(n):
     for j in range(m):
         print(str(matrix[i][j]).ljust(3), end=" ")
     print()
+
+#заполнение матрицы по спирали:
+n, m = map(int, input().split())
+
+matrix = [[0]*m for _ in range(n)]
+
+c = 0
+x = 1
+list_test = []
+
+for k in range(int(round((n+1)/2, 0))):
+
+    for i in range(c, m - c - 1):
+        if matrix[c][i] == 0:
+            matrix[c][i] = x
+            x += 1
+    for i in range(c, n - c - 1):
+        if matrix[i][m - c - 1] == 0:
+            matrix[i][m - c - 1] = x
+            x += 1
+    for i in range(m - c - 1, 0, -1):
+        if matrix[n - c - 1][i] == 0:
+            matrix[n - c - 1][i] = x
+            x += 1
+    for i in range(0, n - c*2 - 1):
+        if matrix[n - c - 1 - i][c] == 0:
+            matrix[n - c - 1 - i][c] = x
+            x += 1
+    if matrix[int(round(n/2, 0)) - 1][int(round(m/2, 0)) - 1] == 0:
+        c += 1
+
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(3), end=" ")
+    print()   
