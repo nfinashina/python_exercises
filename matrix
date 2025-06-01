@@ -327,3 +327,26 @@ for i in range(n):
     for j in range(m):
         print(matrix_sum[i][j], end=" ")
     print()
+
+# умножение матриц
+n, m = map(int, input().split())
+
+matrix_1 = [input().split() for _ in range(n)]
+
+input()
+
+m, k = map(int, input().split())
+
+matrix_2 = [input().split() for _ in range(m)]
+
+matrix_mult = [[0]*n for _ in range(k)]
+
+for i in range(n):
+    for j in range(k):
+        for u in range(m):
+            matrix_mult[i][j] += int(matrix_1[i][u]) * int(matrix_2[u][j])
+            
+for i in range(n):
+    for j in range(k):
+        print(matrix_mult[i][j], end=" ")
+    print()
