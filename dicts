@@ -9,3 +9,24 @@ n = input().upper()
 for i in n:
     if i in letters:
         print(morse_dict[i], end=' ')
+
+#описание условий с помощью словаря
+
+num = int(input())
+
+if num == 1:
+    description = 'One'
+elif num == 2:
+    description = 'Two'
+elif num == 3:
+    description = 'Three'
+else:
+    description = 'Unknown'
+
+print(description)
+
+num = int(input())
+
+description = {1: 'One', 2: 'Two', 3: 'Three'}
+
+print(description.get(num, 'Unknown'))
