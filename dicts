@@ -7,4 +7,5 @@ morse_dict = dict(zip(letters, morse))
 n = input().upper()
 
 for i in n:
-    print(morse_dict[i], end='')
+    if i in letters:
+        print(morse_dict[i], end=' ')
