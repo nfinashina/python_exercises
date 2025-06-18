@@ -30,3 +30,8 @@ num = int(input())
 description = {1: 'One', 2: 'Two', 3: 'Three'}
 
 print(description.get(num, 'Unknown'))
+
+# создание словая с квадратами ключей
+a = [i for i in range(1, 16)]
+b = [i**2 for i in range(1, 16)]
+result = dict(zip(a,b))
