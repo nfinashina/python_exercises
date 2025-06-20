@@ -35,3 +35,21 @@ print(description.get(num, 'Unknown'))
 a = [i for i in range(1, 16)]
 b = [i**2 for i in range(1, 16)]
 result = dict(zip(a,b))
+
+# проверка, являются ли две строки анаграммами
+w1 = input()
+w2 = input()
+
+d1 = {}
+d2 = {}
+
+for i in w1:
+    d1[i] = d1.get(i, 0) + 1
+    
+for i in w2:
+    d2[i] = d2.get(i, 0) + 1
+    
+if d1 == d2:
+    print('YES')
+else:
+    print('NO')
