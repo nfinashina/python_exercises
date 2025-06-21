@@ -76,3 +76,17 @@ for _ in range(n):
     synonym_dict[temp_str[1]] = synonym_dict.get(temp_str[1], temp_str[0])
     
 print(synonym_dict[input()])
+
+# создание справочника стран по городам
+
+n = int(input())
+
+cities_dict = {}
+
+for _ in range(n):
+    con_cit = input().split()
+    for i in range(1, len(con_cit)):
+        cities_dict[con_cit[i]] = cities_dict.get(con_cit[i], con_cit[0])
+        
+for _ in range(int(input())):
+    print(cities_dict[input()])
