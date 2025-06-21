@@ -90,3 +90,17 @@ for _ in range(n):
         
 for _ in range(int(input())):
     print(cities_dict[input()])
+
+# создание телефонного справочника
+phone_dict = {}
+
+for _ in range(int(input())):
+    tel_str = input().lower().split()
+    phone_dict.setdefault(tel_str[1], []).append(tel_str[0])
+    
+for _ in range(int(input())):
+    searched_name = input().lower()
+    if searched_name in phone_dict.keys():
+        print(*phone_dict[searched_name])
+    else:
+        print('абонент не найден')
