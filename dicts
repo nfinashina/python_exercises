@@ -104,3 +104,32 @@ for _ in range(int(input())):
         print(*phone_dict[searched_name])
     else:
         print('абонент не найден')
+
+# расшифровка слова методом частотного анализа
+s = input()
+s_set = set(s)
+
+let_dict = {}
+
+for _ in range(int(input())):
+    dict_item = input().split(':')
+    let_dict[dict_item[1]] = let_dict.get(dict_item[1], dict_item[0])
+
+count_dict = {}
+
+for i in s_set:
+    count_dict[i] = count_dict.get(i , s.count(i))
+    
+let_count_dict = {}
+
+for i in s_set:
+    for key in let_dict.keys():
+        if count_dict[i] == int(key):
+            let_count_dict[i] = let_count_dict.get(i, let_dict[key])
+    
+for i in s:
+    for j in let_count_dict.keys():
+        if i == j:
+            s = s.replace(j, let_count_dict[j])
+    
+print(s)
