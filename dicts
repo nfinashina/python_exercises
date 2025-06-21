@@ -53,3 +53,14 @@ if d1 == d2:
     print('YES')
 else:
     print('NO')
+
+dicts = [{},{}]
+
+# еще одна проверка на анаграмму
+for d in dicts:
+    for i in input().lower():
+        d[i] = d.get(i, 0) + 1
+    for j in ' .,;:!?':
+        if j in d.keys():
+            del d[j]
+print(['NO', 'YES'][dicts[0] == dicts[1]])
