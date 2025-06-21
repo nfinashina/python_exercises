@@ -64,3 +64,15 @@ for d in dicts:
         if j in d.keys():
             del d[j]
 print(['NO', 'YES'][dicts[0] == dicts[1]])
+
+# составление словаря синонимов
+n = int(input())
+
+synonym_dict = {}
+
+for _ in range(n):
+    temp_str = input().split()
+    synonym_dict[temp_str[0]] = synonym_dict.get(temp_str[0], temp_str[1])
+    synonym_dict[temp_str[1]] = synonym_dict.get(temp_str[1], temp_str[0])
+    
+print(synonym_dict[input()])
