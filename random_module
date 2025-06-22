@@ -1,0 +1,7 @@
+# имитатор подкидывания монетки
+import random
+
+n = int(input())    # количество попыток
+
+for _ in range(n):
+    print(['Орел','Решка'][random.randrange(2) == 1])
