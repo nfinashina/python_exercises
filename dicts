@@ -138,3 +138,25 @@ print(s)
 words = ['hello', 'bye', 'yes', 'no', 'python', 'apple', 'maybe', 'stepik', 'beegeek']
 
 result = {i : [ord(j) for j in i] for i in words}
+
+# работа с вложенным словарем
+n = int(input())
+
+shop_list = []
+shop_dict = {}
+for i in range(n):
+    shop_list.append(input())
+    
+for i in shop_list:
+    itms = i.split()
+    name, item, count = itms[0], itms[1], int(itms[2])
+    if name not in shop_dict.keys():
+        shop_dict[name] = shop_dict.setdefault(name, {item: count})
+    elif item not in shop_dict[name]:
+        shop_dict[name].update({item: count})
+    else:
+        shop_dict[name][item] = shop_dict[name].get(item) + count
+for i in sorted(shop_dict):
+    print(f"{i}:")
+    for k2, v2 in sorted(shop_dict[i].items()):
+        print(f"{k2} {v2}")
