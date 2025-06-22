@@ -133,3 +133,8 @@ for i in s:
             s = s.replace(j, let_count_dict[j])
     
 print(s)
+
+# преобразование списка в словарь с помощью генератора
+words = ['hello', 'bye', 'yes', 'no', 'python', 'apple', 'maybe', 'stepik', 'beegeek']
+
+result = {i : [ord(j) for j in i] for i in words}
