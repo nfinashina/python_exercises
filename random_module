@@ -5,3 +5,27 @@ n = int(input())    # количество попыток
 
 for _ in range(n):
     print(['Орел','Решка'][random.randrange(2) == 1])
+
+# создание списка тайных друзей
+import random
+
+n = int(input())
+
+names = []
+[names.append(input()) for _ in range(n)]
+names_friend = names.copy()
+random.shuffle(names_friend)
+print_list = []
+
+cnt = 0
+
+while cnt < n:
+    for i in range(n):
+        if names[i] != names_friend[i]:
+            print_list.append(f"{names[i]} - {names_friend[i]}")
+            cnt += 1
+        else:
+            random.shuffle(names_friend)
+            print_list = []
+            cnt = 0
+print(*print_list, sep='\n')  
