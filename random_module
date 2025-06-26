@@ -29,3 +29,23 @@ while cnt < n:
             print_list = []
             cnt = 0
 print(*print_list, sep='\n')  
+
+# password generator
+import random
+import string
+
+letter = ''.join((set(string.ascii_letters) | set(string.digits)) - set('lI1oO0'))
+
+def generate_password(length):
+    pass_list = []
+    for i in range(length):
+        pass_list.append(random.choice(letter))
+    return ''.join(pass_list)
+
+def generate_passwords(count, length):
+    for _ in range(count):
+        print(generate_password(length))
+
+n, m = int(input()), int(input())
+
+generate_passwords(n, m)
