@@ -29,3 +29,13 @@ if int(num) == 0:
     print(max(num_tuple.digits))
 else:
     print(max(num_tuple.digits) + min(num_tuple.digits))
+
+# decimal calculations
+
+from decimal import Decimal as D
+
+d = D(input())
+
+num = d.exp() + d.ln() + d.log10() + d.sqrt()
+
+print(num)
