@@ -1,0 +1,9 @@
+# make hexagon
+import turtle
+
+def get_hexagon(side):
+  for _ in range(6):
+    turtle.left(60)
+    turtle.forward(side)
+
+get_hexagon(100)
