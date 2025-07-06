@@ -25,3 +25,34 @@ def get_snowflake(count, engle, side):
     
 
 get_snowflake(10, 36, 100)
+
+
+# draw house
+import turtle as t
+
+#t.hideturtle()
+t.fillcolor('brown')
+t.begin_fill()
+t.penup()
+t.goto(-100, 0)
+t.pendown()
+t.forward(200)
+t.left(130)
+t.forward(157)
+t.left(100)
+t.forward(157)
+t.end_fill()
+
+t.fillcolor('light blue')
+t.begin_fill()
+t.penup()
+t.goto(-75, 0)
+t.pendown()
+t.left(40)
+t.forward(150)
+t.left(90)
+t.forward(150)
+t.left(90)
+t.forward(150)
+t.left(90)
+t.end_fill()
