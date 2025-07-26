@@ -11,3 +11,19 @@ def find_mean(i):
 
 print(min(numbers, key=find_mean))
 print(max(numbers, key=find_mean))
+
+# find the value of a polynomial
+from functools import reduce
+
+n = list(map(int, input().split()))
+m = int(input())
+
+coef = list(range(len(n)))[::-1]
+
+def count_polynomial(n, m, coef):
+    counted_list = list(map(lambda x, c: x * m ** c, n, coef))
+    sum = reduce(lambda x, y : x + y, counted_list, 0)
+    
+    return sum
+
+print(print_polynomial(n, m, coef))
