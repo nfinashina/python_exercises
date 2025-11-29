@@ -1,0 +1,9 @@
+def print_given(*args, **kwargs):
+    type_dict = []
+    for arg in args:
+        print(arg, type(arg))
+    
+    lst = sorted(list(kwargs.keys()))
+
+    for i in lst:
+        print(i, kwargs[i], type(kwargs[i]))
