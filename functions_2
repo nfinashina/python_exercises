@@ -23,3 +23,13 @@ def convert(string):
         return string.lower())
     else:
         return string.upper()
+
+def filter_anagrams(word, words):
+    anagrams_list = []
+    for i in words:
+        if sorted(i) == sorted(word):
+            anagrams_list.append(i)
+            
+    return anagrams_list
+    
+print(filter_anagrams('отсечка', ['сеточка', 'стоечка', 'тесачок', 'чесотка']))
