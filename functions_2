@@ -7,3 +7,19 @@ def print_given(*args, **kwargs):
 
     for i in lst:
         print(i, kwargs[i], type(kwargs[i]))
+
+
+def convert(string):
+    l = 0
+    u = 0
+    for i in string:
+       
+        if i.isalpha() and i.islower():
+            l += 1
+        elif i.isalpha() and i.isupper():
+            u += 1
+
+    if l >= u:
+        return string.lower())
+    else:
+        return string.upper()
