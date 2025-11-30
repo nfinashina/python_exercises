@@ -57,3 +57,19 @@ def index_of_nearest(numbers, number):
         
     
     return new_list.index(min(new_list))
+
+def spell(*args):
+
+    let_list = []
+
+    for i in args:
+        let_list.append(i[0].lower())
+
+    print(let_list)
+
+    let_dict = dict.fromkeys(let_list)
+
+    for i in args:
+        if let_dict[i[0].lower()] is None or let_dict[i[0].lower()] <= len(i):
+            print('1')
+            let_dict[i[0].lower()] = len(i)
