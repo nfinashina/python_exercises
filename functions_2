@@ -73,3 +73,16 @@ def spell(*args):
         if let_dict[i[0].lower()] is None or let_dict[i[0].lower()] <= len(i):
             print('1')
             let_dict[i[0].lower()] = len(i)
+
+def choose_plural(number, nouns_set):    
+
+    if number % 100 > 10 and number % 100 < 20:
+        return f'{number} {list(nouns_set)[2]}'
+    elif number % 10 == 0:
+        return f'{number} {list(nouns_set)[2]}'
+    elif number % 10 == 1:
+        return f'{number} {list(nouns_set)[0]}'
+    elif number % 10 < 5:
+        return f'{number} {list(nouns_set)[1]}'
+    else:
+        return f'{number} {list(nouns_set)[2]}'
