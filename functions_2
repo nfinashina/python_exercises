@@ -45,3 +45,15 @@ def likes(users_list):
         return f'{users_list[0]}, {users_list[1]} и {users_list[2]} оценили данную запись'
     else:
         return f'{users_list[0]}, {users_list[1]} и {len(users_list) - 2} других оценили данную запись'
+
+
+def index_of_nearest(numbers, number):
+    if len(numbers) < 1:
+        return -1
+    else:
+        new_list = []
+        for i in numbers:
+            new_list.append(abs(number - i))
+        
+    
+    return new_list.index(min(new_list))
