@@ -86,3 +86,18 @@ def choose_plural(number, nouns_set):
         return f'{number} {list(nouns_set)[1]}'
     else:
         return f'{number} {list(nouns_set)[2]}'
+
+def get_biggest(list_ex):
+    new_list = []
+    max_num_str = ''
+    
+    if len(list_ex) == 0:
+        return -1
+
+    for i in range(len(list_ex)):
+        max_el = len(str(max(list_ex)))
+        new_list = sorted(list_ex, key=lambda x: (str(x) * max_el), reverse=True)
+        max_num_str = ''.join([str(i) for i in new_list])
+
+    
+    return int(max_num_str)
