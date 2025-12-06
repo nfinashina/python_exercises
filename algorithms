@@ -8,3 +8,22 @@ s1 = min(lst)*2 + lst[1]*2
 s2 = sum(lst)
 
 print(min(s1, s2))
+
+# определение, к какой раскладке относятся буквы
+en, ru = 'AaBCcEeHKMOoPpTXxy', 'АаВСсЕеНКМОоРрТХху'
+
+lst = [input() for i in range(3)]
+
+en_count = 0
+ru_count = 0
+
+for i in lst:
+    if i in en:
+        en_count += 1
+        
+if en_count == 3:
+    print('en')
+elif en_count > 0:
+    print('mix')
+else:
+    print('ru')
