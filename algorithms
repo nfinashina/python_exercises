@@ -1,0 +1,10 @@
+# выбор наиболее короткого пути
+lst = []
+[lst.append(int(input())) for i in range(0, 3)]
+
+lst.sort()
+
+s1 = min(lst)*2 + lst[1]*2
+s2 = sum(lst)
+
+print(min(s1, s2))
