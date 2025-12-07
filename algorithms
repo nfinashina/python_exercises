@@ -27,3 +27,14 @@ elif en_count > 0:
     print('mix')
 else:
     print('ru')
+
+# изменение порядка элементов списка по алгоритму
+lst = [int(i) for i in input().split(' ')]
+
+lst_result = list(range(1, lst[0] + 1))
+
+lst_result[lst[1]-1:lst[2]] = lst_result[lst[1]-1:lst[2]][::-1]
+
+lst_result[lst[3]-1:lst[4]] = lst_result[lst[3]-1:lst[4]][::-1]
+
+print(*lst_result)
