@@ -50,3 +50,23 @@ for i in range(len(s)-1):
 res = list(set(list_result))
 res.sort()
 print(*res)
+
+#  определение максимальной группы при группировке по сумме цифр в числах ряда
+n = int(input())
+
+lst = [i for i in range(1, n+1)]
+
+key_lst = []
+for i in lst:
+    key_lst.append(sum(map(int, list(str(i)))))
+
+res_lst = []
+
+for i in range(1, max(key_lst)+1):
+    cnt = 0
+    for key in key_lst:
+        if i == key:
+            cnt += 1
+    res_lst.append(cnt)
+
+print(max(res_lst))
