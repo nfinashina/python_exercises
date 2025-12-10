@@ -93,7 +93,7 @@ if len(com_lst) == 0:
 else:
     print(*com_lst, sep=', ')   
 
-# алгоритм определения адреся эл. почты для тезок
+# алгоритм определения адреса эл. почты для тезок
 n = int(input())
 workers_list = [input() for i in range(n)]
 m = int(input())
@@ -124,3 +124,40 @@ for i in list(dict.fromkeys(new_workers)):
 
              
 print(*new_emails, sep='\n')
+
+#  сравнение слов по положению гласных букв
+str_vov = 'а, у, о, ы, и, э, я, ю, ё, е'.replace(', ', '')
+str_cons = 'б, в, г, д, ж, з, й, к, л, м, н, п, р, с, т, ф, х, ц, ч, ш, щ'.replace(', ', '')
+
+word = input()
+n = int(input())
+comp_words = [input() for i in range(n)]
+
+for i in word:
+    if i in str_vov:
+        word = word.replace(i, '1')
+    else:
+        word = word.replace(i, '0')
+
+new_words_list = []
+
+for i in comp_words:
+    for j in i:
+        if j in str_vov:
+            i = i.replace(j, '1')
+        else:
+            i = i.replace(j, '0')
+    new_words_list.append(i)
+
+words_dict = dict(zip(comp_words, new_words_list))
+
+ind = word.rfind('1')
+
+
+common_words_list = []
+
+for key in words_dict:
+    if words_dict[key][:ind+1] == word[:ind+1]:
+        common_words_list.append(key)
+
+print(*common_words_list, sep='\n')
