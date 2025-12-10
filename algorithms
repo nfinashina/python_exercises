@@ -92,3 +92,35 @@ if len(com_lst) == 0:
     print('Сериал снять не удастся')
 else:
     print(*com_lst, sep=', ')   
+
+# алгоритм определения адреся эл. почты для тезок
+n = int(input())
+workers_list = [input() for i in range(n)]
+m = int(input())
+new_workers = [input() for i in range(m)]
+
+new_emails = []
+
+for i in list(dict.fromkeys(new_workers)):
+    counter = 0
+    ind = 0
+    while counter < new_workers.count(i):
+        if ind == 0:
+            if i+'@beegeek.bzz' in workers_list:
+                ind += 1
+            else:
+                new_emails.append(i+'@beegeek.bzz')
+                workers_list.append(i+'@beegeek.bzz')
+                ind +=1
+                counter +=1
+        else:
+            if i+str(ind)+'@beegeek.bzz' in workers_list:
+                ind += 1
+            else:
+                new_emails.append(i+str(ind)+'@beegeek.bzz')
+                workers_list.append(i+str(ind)+'@beegeek.bzz')
+                ind += 1
+                counter += 1
+
+             
+print(*new_emails, sep='\n')
