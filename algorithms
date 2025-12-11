@@ -161,3 +161,47 @@ for key in words_dict:
         common_words_list.append(key)
 
 print(*common_words_list, sep='\n')
+
+# преобразование данных из текстового файла
+import re
+with open('D:/files.txt', 'r', encoding='utf-8') as file:
+    s = file.readlines()
+    list_files = []
+    for i in s:
+        list_files.append(i.strip('\n'))
+
+size_file = {'B': 1, 'KB': 1024, 'MB': 1048576, 'GB': 1073741824}
+
+files_split = []
+
+for i in list_files:
+    files_split.append(re.split(r"[.\s]", i))
+
+formats = []
+
+for i in files_split:
+    if i[1] not in formats:
+        formats.append(i[1])
+
+formats.sort()
+
+for i in formats:
+    temp_list = []
+    sum_list = []
+    for y in files_split:
+        if y[1] == i:
+            temp_list.append(y[0])
+            sum_list.append(int(y[2]) * size_file[y[3]])
+    temp_list.sort()
+    for j in temp_list:
+        print(f'{j}.{i}')
+    print('----------')
+    if sum(sum_list) < 1024:
+        print(f'Summary: {sum(sum_list)} B')
+    elif sum(sum_list) < 1048576:
+        print(f'Summary: {round(sum(sum_list)/1024)} KB')
+    elif sum(sum_list) < 1073741824:
+        print(f'Summary: {round(sum(sum_list)/1048576)} MB')
+    else:
+        print(f'Summary: {round(sum(sum_list)/1073741824)} GB')
+    print()
