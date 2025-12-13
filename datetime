@@ -24,3 +24,21 @@ def get_date_range(date1, date2):
         for i in range(date1.toordinal(), date2.toordinal()+1):
             range_list.append(date.fromordinal(i))
         return range_list
+
+# написать функцию, которая считает количество суббот между датами
+
+def saturdays_between_two_dates(date1, date2):
+    if date1 > date2:
+        date1, date2 = date2, date1
+
+    range_list = []
+    for i in range(date1.toordinal(), date2.toordinal()+1):
+        range_list.append(date.fromordinal(i))
+    
+    cnt = 0
+
+    for i in range_list:
+        if i.weekday() == 5:
+            cnt += 1
+
+    return cnt
