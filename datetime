@@ -14,3 +14,13 @@ def get_min_max(dates):
         return tuple()
     else:
         return tuple([min(dates), max(dates)])
+
+# написать функцию, которая возврящяет список дат
+def get_date_range(date1, date2):
+    if date1 > date2:
+        return []
+    else:
+        range_list = []
+        for i in range(date1.toordinal(), date2.toordinal()+1):
+            range_list.append(date.fromordinal(i))
+        return range_list
