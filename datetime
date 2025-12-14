@@ -76,3 +76,14 @@ dates = [[int(j) for j in input().split('-')] for i in range(2)]
 dates = [date(i[0], i[1], i[2]) for i in dates]
 
 print(min(dates).strftime('%d-%m (%Y)'))
+
+# вывести отсортированный список дат в заданном формате
+from datetime import date
+
+dates = [date.fromisoformat(input()) for i in range(int(input()))]
+
+dates.sort()
+
+dates = [i.strftime('%d/%m/%Y') for i in dates]
+
+print(*dates, sep='\n')
