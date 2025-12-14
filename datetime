@@ -96,3 +96,26 @@ def is_correct(day, month, year):
         return True
     except:
         return False
+
+# определить, корректная или некорректная дата подается в код
+def is_correct(day, month, year):
+    try:
+        date(day=day, month=month, year=year)
+        return True
+    except:
+        return False
+
+dates = []
+c = 0
+
+while (data1:= input()) != 'end':
+    day, month, year = data1.split('.')
+    i = is_correct(int(day), int(month), int(year))
+    if i:
+        dates.append('Корректная')
+        c += 1
+    else:
+        dates.append('Некорректная')
+
+print(*dates, sep='\n')
+print(c)
