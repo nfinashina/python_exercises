@@ -87,3 +87,12 @@ dates.sort()
 dates = [i.strftime('%d/%m/%Y') for i in dates]
 
 print(*dates, sep='\n')
+
+# написать функцию, которая определяет корректность введенной даты
+
+def is_correct(day, month, year):
+    try:
+        date(day=day, month=month, year=year)
+        return True
+    except:
+        return False
