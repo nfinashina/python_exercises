@@ -119,3 +119,18 @@ while (data1:= input()) != 'end':
 
 print(*dates, sep='\n')
 print(c)
+
+# сортировка записей дневника в хронологическом порядке
+from datetime import datetime
+
+filename = 'D:/diary.txt'
+
+with open(filename, 'r', encoding='utf-8') as file:
+    s = file.read().split('\n\n')
+
+s.sort(key=lambda x: datetime.strptime(x[:17],'%d.%m.%Y; %H:%M'))
+
+for i in s:
+    print(i[:17])
+    print(i[18:])
+    print('')
