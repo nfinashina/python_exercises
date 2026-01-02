@@ -134,3 +134,47 @@ for i in s:
     print(i[:17])
     print(i[18:])
     print('')
+
+# функция, определяющая, есть ли указанная дата в списке
+from datetime import datetime as dt, timedelta as tm
+
+dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021']
+some_date = '10.11.2021-14.11.2021'
+
+def is_available_date(dates, some_date):
+
+    busy_days = []
+    new_booking = []
+    c = 0
+
+    for i in dates:
+        if '-' in i:
+            i = i.split('-')
+            first_date = dt.strptime(i[0], '%d.%m.%Y').date()
+            last_date = dt.strptime(i[1], '%d.%m.%Y').date()
+            period_dates = [first_date + tm(days=i) for i in range((last_date - first_date).days + 1)]
+
+            busy_days += period_dates
+        else:
+            busy_days.append(dt.strptime(i, '%d.%m.%Y').date())
+
+
+    if '-' in some_date:
+        i = some_date.split('-')
+        first_date = dt.strptime(i[0], '%d.%m.%Y').date()
+        last_date = dt.strptime(i[1], '%d.%m.%Y').date()
+        period_dates = [first_date + tm(days=i) for i in range((last_date - first_date).days + 1)]
+        new_booking += period_dates
+    else:
+        new_booking.append(dt.strptime(some_date, '%d.%m.%Y').date())
+
+    for i in new_booking:
+        if i in busy_days:
+            c += 1
+
+    if c > 0:
+        return False
+    else:
+        return True
+    
+print(is_available_date(dates, some_date))
