@@ -191,3 +191,17 @@ if len(list_dates) > 1:
         list_delta.append(abs(list_dates[i+1] - list_dates[i]).days)
         
 print(list_delta)
+
+# функция, возвращающая непрерывный список дат
+
+def fill_up_missing_dates(dates):
+    dates = [datetime.strptime(i, '%d.%m.%Y') for i in dates]
+    new_dates = []
+    n = 0
+    date = min(dates)
+    while date < max(dates):
+        date = min(dates)+timedelta(days=n)
+        new_dates.append(datetime.strftime(date, '%d.%m.%Y'))
+        n += 1
+
+    return new_dates
