@@ -178,3 +178,16 @@ def is_available_date(dates, some_date):
         return True
     
 print(is_available_date(dates, some_date))
+
+#расчет количества дней между соседними датами
+
+from datetime import datetime as dt, timedelta as td
+
+list_dates = [dt.strptime(i, '%d.%m.%Y') for i in input().split(' ')]
+list_delta = []
+
+if len(list_dates) > 1:
+    for i in range(len(list_dates) - 1):
+        list_delta.append(abs(list_dates[i+1] - list_dates[i]).days)
+        
+print(list_delta)
