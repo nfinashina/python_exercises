@@ -225,3 +225,47 @@ for i in data:
     delta += (finish - start).seconds
 
 print(int(round(delta/60, 0)))
+
+# вычислить время до наступления события и вывести в текстовом формате
+
+from datetime import datetime, timedelta, time, date
+
+def choose_plural(number, nouns_set):    
+
+    if number % 100 > 10 and number % 100 < 20:
+        return f'{number} {list(nouns_set)[2]}'
+    elif number % 10 == 0:
+        return f'{number} {list(nouns_set)[2]}'
+    elif number % 10 == 1:
+        return f'{number} {list(nouns_set)[0]}'
+    elif number % 10 < 5:
+        return f'{number} {list(nouns_set)[1]}'
+    else:
+        return f'{number} {list(nouns_set)[2]}'
+    
+days_set = ['день', 'дня', 'дней']
+hours_set = ['час', 'часа', 'часов']
+minutes_set = ['минута', 'минуты', 'минут']
+
+event = datetime(2022, 11, 8, 12, 0, 0)
+
+cur_date = datetime.strptime(input(), '%d.%m.%Y %H:%M')
+
+delta = event - cur_date
+
+dd = delta.days
+dh = delta.seconds//3600
+dm = delta.seconds%3600//60
+
+if event <= cur_date:
+    print('Курс уже вышел!')
+elif dd != 0 and dh != 0:
+    print(f'До выхода курса осталось: {choose_plural(dd, days_set)} и {choose_plural(dh, hours_set)}')
+elif dd != 0 and dh == 0:
+    print(f'До выхода курса осталось: {choose_plural(dd, days_set)}')
+elif dd == 0 and dh != 0 and dm != 0:
+    print(f'До выхода курса осталось: {choose_plural(dh, hours_set)} и {choose_plural(dm, minutes_set)}')
+elif dd == 0 and dh != 0 and dm == 0:
+    print(f'До выхода курса осталось: {choose_plural(dh, hours_set)}')
+elif dd == 0 and dh == 0 and dm != 0:
+    print(f'До выхода курса осталось: {choose_plural(dm, minutes_set)}')
