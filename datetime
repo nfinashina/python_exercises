@@ -269,3 +269,41 @@ elif dd == 0 and dh != 0 and dm == 0:
     print(f'До выхода курса осталось: {choose_plural(dh, hours_set)}')
 elif dd == 0 and dh == 0 and dm != 0:
     print(f'До выхода курса осталось: {choose_plural(dm, minutes_set)}')
+
+# подсчет времени выполнения разных функций
+
+import time
+
+def for_and_append(iterable):             # с использованием цикла for и метода append()
+    result = []
+    for elem in iterable:
+        result.append(elem)
+    return result
+        
+
+def list_comprehension(iterable):         # с использованием списочного выражения
+    return [elem for elem in iterable]    
+    
+
+def list_function(iterable):              # с использованием встроенной функции list()
+    return list(iterable)  
+
+funcs = [for_and_append, list_comprehension, list_function]
+
+
+list_res = []
+
+for func in funcs:
+    start_time = time.perf_counter_ns()
+    func(range(100_000))
+    end_time = time.perf_counter_ns()
+    elapsed_time = end_time - start_time
+    
+    list_res.append(elapsed_time)
+
+min_res = min(list_res)
+    
+ind = list_res.index(min(list_res))
+
+print(list_res)
+print(funcs[ind])
