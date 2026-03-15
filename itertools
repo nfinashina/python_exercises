@@ -1,0 +1,8 @@
+# create zip function with autofill misssing elements
+
+def zip_longest(*args, fill=None):
+    m = max(len(i) for i in list(args))
+    for arg in args:
+      while len(arg) < m:
+        arg.append(fill)
+    return list(zip(*args))
